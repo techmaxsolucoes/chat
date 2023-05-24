@@ -47,6 +47,11 @@ export default class ChatForm {
 						<input type='email' class='form-control' id='chat-email' 
 							placeholder='${__('Please enter your email')}'>
 					</div>
+            <div class='form-group'>
+            <label class='form-label'>${__("Phone number (full number with your country's DDI)")}</label>
+            <input type='phone' class='form-control' id='chat-phone' 
+              placeholder='${__('Please enter your phone number')}'>
+          </div>
 					<div class='form-group'>
 						<label class='form-label'>${__('Message')}</label>
 						<textarea class='form-control' id='chat-message-area' 
@@ -72,6 +77,7 @@ export default class ChatForm {
       email: $('#chat-email').val(),
       full_name: $('#chat-fullname').val(),
       message: $('#chat-message-area').val(),
+      phone_number: $('#chat-phone').val()
     };
     return result;
   }

@@ -10,7 +10,8 @@
   "email",
   "guest_name",
   "token",
-  "ip_address"
+  "ip_address",
+  "phone_number"
  ],
  "fields": [
   {
@@ -44,11 +45,18 @@
    "read_only": 1,
    "reqd": 1,
    "set_only_once": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone number",
+   "options": "Phone",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-10-22 12:27:31.506281",
+ "modified": "2023-05-24 14:29:23.555930",
  "modified_by": "Administrator",
  "module": "Frappe Chat",
  "name": "Chat Profile",
@@ -82,5 +90,6 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
+ "states": [],
  "track_changes": 1
 }
