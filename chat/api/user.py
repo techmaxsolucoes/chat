@@ -18,13 +18,14 @@ def validate_room_kwargs(function):
     return _validator
 
 
-def generate_guest_room(email: str, full_name: str, message: str) -> Tuple[str, str]:
+def generate_guest_room(email: str, full_name: str, message: str, phone_number: str) -> Tuple[str, str]:
     chat_operators = frappe.get_cached_doc("Chat Settings").chat_operators or []
     profile_doc = frappe.get_doc(
         {
             "doctype": "Chat Profile",
             "email": email,
             "guest_name": full_name,
+            "phone_number": phone_number
         }
     ).insert()
     new_room = frappe.get_doc(
@@ -61,7 +62,7 @@ def generate_guest_room(email: str, full_name: str, message: str) -> Tuple[str, 
 
 @frappe.whitelist(allow_guest=True)
 @validate_room_kwargs
-def get_guest_room(*, email: str, full_name: str, message: str) -> Dict[str, str]:
+def get_guest_room(*, email: str, full_name: str, message: str, phone_number: str) -> Dict[str, str]:
     """Validate and setup profile & room for the guest user
 
     Args:
@@ -70,7 +71,7 @@ def get_guest_room(*, email: str, full_name: str, message: str) -> Dict[str, str
         message (str): Message to be dropped.
     """
     if not frappe.db.exists("Chat Profile", email):
-        room, token = generate_guest_room(email, full_name, message)
+        room, token = generate_guest_room(email, full_name, message, phone_number)
 
     else:
         room = frappe.db.get_value("Chat Room", {"guest": email}, "name")

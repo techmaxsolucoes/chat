@@ -111,13 +111,14 @@ async function mark_message_read(room) {
 }
 
 
-async function create_guest({ email, full_name, message }) {
+async function create_guest({ email, full_name, message, phone_number }) {
   const res = await frappe.call({
     method: 'chat.api.user.get_guest_room',
     args: {
       email: email,
       full_name: full_name,
       message: message,
+      phone_number: phone_number
     },
   });
   return await res.message;
