@@ -27,11 +27,11 @@ export default class ChatList {
 				<h3>${__('Chats')}</h3>
         <div class='chat-list-icons'>
           <div class='add-room' 
-            title='Create Private Room'>
+            title='Criar sala privada'>
             ${frappe.utils.icon('users', 'md')}
           </div>
           <div class='user-settings' 
-          title='Settings'>
+          title='Configurações'>
           ${frappe.utils.icon('setting-gear', 'md')}
           </div>
         </div>
@@ -46,7 +46,7 @@ export default class ChatList {
 			<div class='input-group'>
 				<input class='form-control chat-search-box'
 				type='search' 
-				placeholder='${__('Search conversation')}'
+				placeholder='${__('Buscar conversa')}'
 				>	
 				<span class='search-icon'>
 					${frappe.utils.icon('search', 'sm')}
@@ -65,8 +65,8 @@ export default class ChatList {
       this.render_messages();
     } catch (error) {
       frappe.msgprint({
-        title: __('Error'),
-        message: __('Something went wrong. Please refresh and try again.'),
+        title: __('Erro'),
+        message: __('Algo deu errado, por favor atualize e tente novamente.'),
       });
     }
   }

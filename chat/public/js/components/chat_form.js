@@ -25,7 +25,7 @@ export default class ChatForm {
 						${__(this.profile.name)}
 						<div class='online-circle'></div>
 					</div>
-					<div class='chat-profile-status'>${__('Typically replies in a few hours')}</div>
+					<div class='chat-profile-status'>${__('Geralmente respondemos em alguns instantes!')}</div>
 				</div>
 			</div>
 		`;
@@ -35,38 +35,38 @@ export default class ChatForm {
   setup_form() {
     const form_html = `
 			<div class='chat-form-container'>
-				<p class='chat-query-heading'>${__('Share your queries or comments here.')}</p>
+				<p class='chat-query-heading'>${__('Compartilhe suas perguntas ou comentários aqui!')}</p>
 				<form>
 					<div class='form-group'>
-						<label class='form-label'>${__('Full Name')}</label>
+						<label class='form-label'>${__('Seu nome')}</label>
 						<input type='text' class='form-control' id='chat-fullname' 
-							placeholder='${__('Please enter your full name')}'>
+							placeholder='${__('Por favor informe seu nome completo')}'>
 					</div>
 					<div class='form-group'>
-						<label class='form-label'>${__('Email Address')}</label>
+						<label class='form-label'>${__('Seu email')}</label>
 						<input type='email' class='form-control' id='chat-email' 
-							placeholder='${__('Please enter your email')}'>
+							placeholder='${__('Por favor informe seu endereço de email')}'>
 					</div>
             <div class='form-group'>
-            <label class='form-label'>${__("Phone number (full number with your country's DDI)")}</label>
+            <label class='form-label'>${__("Seu número de telefone (com DDD)")}</label>
             <input type='phone' class='form-control' id='chat-phone' 
-              placeholder='${__('Please enter your phone number')}'>
+              placeholder='${__('Informe seu número de telefone')}'>
           </div>
 					<div class='form-group'>
-						<label class='form-label'>${__('Message')}</label>
+						<label class='form-label'>${__('Sua mensagem')}</label>
 						<textarea class='form-control' id='chat-message-area' 
-							placeholder='${__('Please enter your message')}'></textarea>
+							placeholder='${__('Por favor digite sua mensagem')}'></textarea>
 					</div>
 					<button type='button' class='btn btn-primary w-100'
 						id='submit-form'>
-            ${__('Submit')}
+            ${__('Iniciar conversa')}
           </button>
 				</form>
 			</div>
 		`;
     const footer_html = `
-      <a class='chat-footer' target='_blank' href='https://frappeframework.com/'>
-        ${__('⚡ Powered by Frappe')}
+      <a class='chat-footer' target='_blank' href='https://www.techmaxsolucoes.com.br/?source=chat'>
+        ${__('⚡ Desenvolvido por TechMax Soluções')}
       </a>
     `;
     this.$chat_form.append(form_html + footer_html);

@@ -81,7 +81,7 @@ async function send_message(content, user, room, email) {
   } catch (error) {
     frappe.msgprint({
       title: __('Error'),
-      message: __('Something went wrong. Please refresh and try again.'),
+      message: __('Algo deu errado, por favor atualize a página e tente novamente.'),
     });
   }
 }
@@ -125,7 +125,7 @@ async function create_guest({ email, full_name, message, phone_number }) {
 }
 
 async function set_typing(room, user, is_typing, is_guest) {
-  try {
+  /*try {
     await frappe.call({
       method: 'chat.api.message.set_typing',
       args: {
@@ -136,8 +136,10 @@ async function set_typing(room, user, is_typing, is_guest) {
       },
     });
   } catch (error) {
-    //pass
-  }
+  }*/
+  frappe.realtime.emit(`${room}:typing`, {
+    room, user, is_typing, is_guest
+  })
 }
 
 async function create_private_room(room_name, users, type) {

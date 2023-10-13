@@ -7,16 +7,16 @@ export default class ChatUserSettings {
 
   async setup() {
     this.user_settings_dialog = new frappe.ui.Dialog({
-      title: __('My Settings'),
+      title: __('Minhas configurações'),
       fields: [
         {
-          label: __('Enable Message Tone'),
+          label: __('Habilitar alarme sonoro'),
           fieldname: 'enable_message_tone',
           fieldtype: 'Check',
           default: frappe.Chat.settings.user.enable_message_tone,
         },
         {
-          label: __('Enable Notifications'),
+          label: __('Habilitar notificações'),
           fieldname: 'enable_notifications',
           fieldtype: 'Check',
           default: frappe.Chat.settings.user.enable_notifications,
@@ -24,7 +24,7 @@ export default class ChatUserSettings {
       ],
       action: {
         primary: {
-          label: __('Save'),
+          label: __('Salvar'),
           onsubmit: (values) => {
             set_user_settings(values);
             frappe.Chat.settings.user.enable_message_tone =

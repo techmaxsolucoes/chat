@@ -9,9 +9,9 @@ def validate_room_kwargs(function):
     @wraps(function)
     def _validator(**kwargs):
         if not kwargs["full_name"]:
-            frappe.throw(title="Error", msg=_("Full Name is required"))
+            frappe.throw(title="Error", msg=_("O nome completo é obrigatório!"))
         if not kwargs["message"]:
-            frappe.throw(title="Error", msg=_("Message is too short"))
+            frappe.throw(title="Error", msg=_("A mensagem é obrigatória!"))
         validate_email_address(kwargs["email"], throw=True)
         return function(**kwargs)
 

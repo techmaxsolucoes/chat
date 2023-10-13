@@ -19,6 +19,11 @@ def settings(token):
         'guest_title': ''.join(frappe.get_hooks('guest_title')),
     }
 
+    try:
+        token = json.loads(token, object_hook=frappe._dict)['token']
+    except:
+        pass
+
     config = {**config, **get_chat_settings()}
 
     if config['is_admin']:

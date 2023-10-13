@@ -9,7 +9,7 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "developers@frappe.io"
 app_license = "MIT"
-guest_title = app_title
+guest_title = "TMX Chat"
 is_frappe_above_v13 = int(frappe_version.split('.')[0]) > 13
 
 # Includes in <head>

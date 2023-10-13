@@ -49,7 +49,7 @@ export default class ChatSpace {
 					${__(this.profile.room_name)}
 					<div class='online-circle'></div>
 					</div>
-					<div class='chat-profile-status'>${__('Typing...')}</div>
+					<div class='chat-profile-status'>${__('Digitando...')}</div>
 				</div>
 			</div>
 		`;
@@ -68,7 +68,7 @@ export default class ChatSpace {
     } catch (error) {
       frappe.msgprint({
         title: __('Error'),
-        message: __('Something went wrong. Please refresh and try again.'),
+        message: __('Algo deu errado, por favor atualize a página e tente novamente.'),
       });
     }
   }
@@ -141,7 +141,9 @@ export default class ChatSpace {
     this.$chat_actions.addClass('chat-space-actions');
     const chat_actions_html = `
 			<span class='open-attach-items'>
-				${frappe.utils.icon('attachment', 'lg')}
+        <svg class="icon icon-lg" viewBox="0 0 16 16">
+          <path d="M14 7.66625L8.68679 12.8875C7.17736 14.3708 4.64151 14.3708 3.13208 12.8875C1.62264 11.4042 1.62264 8.91224 3.13208 7.42892L7.84151 2.80099C8.9283 1.733 10.6189 1.733 11.7057 2.80099C12.7925 3.86897 12.7925 5.53028 11.7057 6.59827L7.35849 10.8109C6.75472 11.4042 5.78868 11.4042 5.24528 10.8109C4.64151 10.2176 4.64151 9.26823 5.24528 8.73424L8.86792 5.17429" stroke="var(--icon-stroke)" stroke-miterlimit="10" stroke-linecap="round"></path>
+        </svg>
 			</span>
 			<input type='file' id='chat-file-uploader' 
 				accept='image/*, application/pdf, .doc, .docx'
@@ -149,7 +151,7 @@ export default class ChatSpace {
 			>
 			<input class='form-control type-message' 
 				type='search' 
-				placeholder='${__('Type message')}'
+				placeholder='${__('Digite sua mensagem')}'
 			>
 			<div>
 				<span class='message-send-button'>
@@ -180,7 +182,7 @@ export default class ChatSpace {
       });
 
       xhr.addEventListener('error', () => {
-        reject(frappe.throw(__('Internal Server Error')));
+        reject(frappe.throw(__('Erro Interno do Servidor')));
       });
       xhr.onreadystatechange = () => {
         if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -197,7 +199,7 @@ export default class ChatSpace {
             }
             try {
               if (file_doc === null) {
-                reject(frappe.throw(__('File upload failed!')));
+                reject(frappe.throw(__('Carregamento do Arquivo Falhou!')));
               }
               me.handle_send_message(file_doc.file_url);
             } catch (error) {
